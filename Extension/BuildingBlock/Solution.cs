@@ -24,50 +24,37 @@ namespace BuildingBlock
         private int CalculateTotal(int[] input)
         {
             var max = input[0];
-            var possitionFirstMax = 0;
-            var possitionLastMax = 0;
-            var maxLeft = max;
-            var maxRight = 0;
+            var area = new int[input.Length];
+            var minArea = 0;
             
-            for(var index = 1; index < input.Length ; index++ )
+            for(var index = 0; index < input.Length ; index++ )
             {
-                if (input[index] > max)
+                if( max < input[index])
                 {
-                    maxLeft = max;
                     max = input[index];
-                    possitionFirstMax = index;
-                    possitionLastMax = index;
                 }
-                else if (input[index] == max)
-                {
-                    possitionLastMax = index;
-                    
-                    if (index + 1 < input.Length) 
-                    {
-                        maxRight = input[index + 1];
-                    }
-                    else
-                    {
-                        maxRight = max;
-                    }
-                }
-                else if(maxRight < input[index])
-                {
-                    maxRight = input[index];
-                }
+                area[index] = max * (index+1);
             }
-            if (possitionFirstMax == possitionLastMax)
+
+            max = input[input.Length - 1];
+            var count = 1;
+            
+            for(var index = input.Length-1; index>0; index --)
             {
-                return DetectMinArea(max, maxLeft, maxRight, possitionFirstMax, input.Length);
+                if( max < input[index])
+                {
+                    max = input[index];
+                }
+                area[index - 1] = area[index -1] + max * count;
+                count ++;
             }
-            else
+
+            minArea = area[0];
+            for( var index = 1; index < area.Length; index ++)
             {
-                var minAreaFirstMax = DetectMinArea(max, maxLeft, max, possitionFirstMax, input.Length);
-                var minAreaSecondMax = DetectMinArea(max, max, maxRight, possitionLastMax, input.Length);
-                return minAreaFirstMax > minAreaSecondMax
-                    ? minAreaSecondMax
-                    : minAreaFirstMax;
+                minArea = minArea > area[index] ? area[index] : minArea;
             }
+            return minArea;
         }
 
         private int DetectMinArea(int max, int maxLeft, int maxRight, int positionMax, int length)
