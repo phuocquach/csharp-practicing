@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyDetection", "Extension\CopyDetection\CopyDetection.csproj", "{8E3E3463-54FE-4196-B9F8-75D8C442314D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyDetectionTest", "Extension\CopyDetectionTest\CopyDetectionTest.csproj", "{90367782-8AAC-485B-93CB-D48BD5BE3E9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyDetectionTest", "Test\CopyDetectionTest\CopyDetectionTest.csproj", "{90367782-8AAC-485B-93CB-D48BD5BE3E9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
