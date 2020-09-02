@@ -5,7 +5,7 @@ namespace CopyDetectionTest
 {
     public class StringCopyDetectionTest
     {
-        [Fact]
+        [Theory]
         public void StringCopiedDetectionTest_ShouldReturn_True()
         {
             var sourceString = "abc";
