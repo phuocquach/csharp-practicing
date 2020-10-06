@@ -6,12 +6,10 @@ namespace MaxCounter
     {
         public int[] solution(int N, int[] A) 
         {
-            // write your code in C# 6.0 with .NET 4.5 (Mono)
             var maxCounter = 0;
             var target = N +1;
             var result = new int[N];
             var lastResetIndex = FindIndex(target, A);
-            
             
             if (lastResetIndex >=0)
             {
